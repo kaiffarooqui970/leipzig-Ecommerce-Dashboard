@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import sqlite3
 import plotly.express as px
 
 # 1. Page Configuration
@@ -8,40 +7,22 @@ st.set_page_config(page_title="E-Commerce KPI Dashboard", layout="wide")
 st.title("📊 E-Commerce Business Performance Dashboard")
 st.markdown("Analyzing total revenue, order volume, and top-performing product categories.")
 
-# 2. Load Data Directly from the SQLite Database
-# The @st.cache_data decorator ensures it only runs this heavy query once!
+# 2. Load Data from the pre-cleaned CSV
 @st.cache_data
 def load_data():
-    # Because the database is in the exact same folder as app.py, 
-    # we don't need a long messy file path. Just the file name!
-    conn = sqlite3.connect('olist.sqlite 2')
+    # Read the CSV file directly
+    df = pd.read_csv('ecommerce_dashboard_master.csv')
     
-    # Extract tables
-    orders = pd.read_sql_query("SELECT * FROM orders", conn)
-    items = pd.read_sql_query("SELECT * FROM order_items", conn)
-    customers = pd.read_sql_query("SELECT * FROM customers", conn)
-    products = pd.read_sql_query("SELECT * FROM products", conn)
-    translations = pd.read_sql_query("SELECT * FROM product_category_name_translation", conn)
-    conn.close()
-
-    # Merge tables
-    master_df = pd.merge(orders, items, on='order_id', how='inner')
-    master_df = pd.merge(master_df, customers, on='customer_id', how='inner')
-    master_df = pd.merge(master_df, products, on='product_id', how='inner')
-    master_df = pd.merge(master_df, translations, on='product_category_name', how='left')
-
-    # Feature Engineering
-    master_df['total_order_value'] = master_df['price'] + master_df['freight_value']
-    master_df['order_purchase_timestamp'] = pd.to_datetime(master_df['order_purchase_timestamp'])
-    master_df['year_month'] = master_df['order_purchase_timestamp'].dt.to_period('M').astype(str)
+    # Ensure datetime formatting remains intact
+    df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
     
-    # Keep only delivered orders
-    master_df = master_df[master_df['order_status'] == 'delivered']
-    
-    return master_df
+    # If year_month doesn't exist in the CSV, recreate it
+    if 'year_month' not in df.columns:
+        df['year_month'] = df['order_purchase_timestamp'].dt.to_period('M').astype(str)
+        
+    return df
 
-# Show a loading spinner while the database connects
-with st.spinner('Connecting to Database & Crunching Numbers...'):
+with st.spinner('Loading Data...'):
     df = load_data()
 
 # 3. Sidebar Filters
@@ -103,7 +84,6 @@ with col_chart2:
         fig_bar.update_layout(yaxis={'categoryorder':'total ascending'})
         st.plotly_chart(fig_bar, use_container_width=True)
     else:
-        # If a specific category is selected, show where those customers live!
         st.subheader("Geographic Distribution")
         st.markdown(f"Showing state-level performance for **{selected_category}**")
         geo_data = filtered_df.groupby('customer_state')['order_id'].nunique().reset_index()
