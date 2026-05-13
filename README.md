@@ -17,33 +17,103 @@ LINK FOR THE DASHBOARD-  https://leipzig-ecommerce-dashboard-wxsdosnh2gqghe2tgpr
 
 ---
 
-## 💡 The Vision
-Raw e-commerce data is often scattered across multiple SQL tables. This project bridges the gap between raw data and executive decision-making. 
+E‑Commerce Business Performance Dashboard
+Power BI / Tableau Project
 
-It is a fully interactive, end-to-end data pipeline that consolidates fragmented data into a unified, high-performance web dashboard to track real-time business metrics.
+🔍 Project Overview
+This dashboard provides a clear, interactive view of key business metrics for an e‑commerce company. It brings together revenue, order volume, and category performance into one place so decision‑makers can quickly understand the company’s performance and identify growth opportunities.
 
----
+🧩 Problem
+E‑commerce businesses often operate with scattered spreadsheets, outdated manual reports, and no unified view of performance.
+This creates three major issues:
 
-## 🏗️ Technical Architecture & Pipeline
+Leaders can’t see trends in revenue or customer behavior.
+Teams make decisions without accurate, real‑time metrics.
+High‑performing categories or problem areas go unnoticed.
+Without a centralized dashboard, the business loses time, opportunities, and potential revenue.
 
-The project follows a professional Data Science workflow:
-1. **Extraction:** Queries a multi-table SQLite database containing Brazilian e-commerce transactions.
-2. **Transform (ETL):** Uses Pandas to execute complex JOINS between orders, products, and customer geography.
-3. **Feature Engineering:** Calculates Total Order Value and engineers time-series dimensions for monthly tracking.
-4. **Visualization:** Deploys a live Streamlit interface using Plotly for interactive data exploration.
+🎯 Why I Solved This Problem
+As a data analyst, one of the most important responsibilities is to turn raw data into clear, actionable insights.
+I built this dashboard to demonstrate the exact skills required in a real company:
 
----
+Data cleaning and transformation
+KPI definition
+Trend analysis
+Category performance evaluation
+Generating insights and business recommendations
+Communicating data visually
+This project shows how analytics can directly support business decision‑making.
 
-## 🚀 Key Dashboard Features
-* **Executive KPIs:** Real-time visibility into Total Revenue, Order Count, and Average Order Value (AOV).
-* **Dynamic Sidebar:** Allows stakeholders to filter all metrics by specific product categories instantly.
-* **Geographic Distribution:** State-level breakdowns showing customer distribution across Brazil.
+🛠️ Tools & Technologies
+Power BI / Tableau
+SQL / Excel (for data cleaning)
+E‑commerce dataset (public)
+DAX / Calculated Fields
+📊 Key Performance Indicators (KPIs)
+The dashboard focuses on the following business‑critical metrics:
 
----
+Total Revenue: $15,419,773.75
+Total Orders: 96,478
+Average Order Value (AOV): $159.83
+Top Revenue‑Generating Categories
+Monthly Revenue Trend
+These KPIs give a complete overview of the company’s financial and customer performance.
 
-## 💻 Local Installation
+📈 What the Dashboard Shows
+1. Revenue Trend by Month
+A clear visualization of how monthly revenue changes, highlighting seasonal spikes and dips.
 
-**1. Clone the repository**
-```bash
-git clone [https://github.com/kaiffarooqui970/leipzig-ecommerce-dashboard.git](https://github.com/kaiffarooqui970/leipzig-ecommerce-dashboard.git)
-cd leipzig-ecommerce-dashboard
+2. Top 10 Categories by Revenue
+Shows which product categories drive the most revenue—critical for inventory planning and marketing focus.
+
+3. Business Health Indicators
+Quick‑view tiles summarize the company’s overall performance at a glance.
+
+🧠 Insights
+Based on the visual analysis, here are the most important findings:
+
+Revenue shows consistent upward movement with a few key peaks, suggesting strong seasonal performance.
+Health & Beauty and Watches/Gifts dominate category revenue, indicating strong customer demand.
+Several categories generate significantly lower revenue, showing potential inefficiencies or lack of marketing focus.
+Order volume is high, but the average order value suggests potential upsell/cross‑sell opportunities.
+🚀 Recommendations
+Actionable steps that would improve business performance:
+
+Increase marketing and inventory investment in high‑performing categories to maximize revenue.
+Evaluate low‑performing categories to identify why they lag (pricing, product selection, competition).
+Introduce targeted promotions for high‑value customer segments to push up AOV.
+Use trend data to prepare marketing campaigns ahead of seasonal peaks.
+These steps would help the business grow revenue, improve margins, and optimize product strategy.
+
+
+Recommendations
+To improve business performance:
+
+Invest more in top categories (marketing, inventory, partnerships).
+Audit low-performing categories to understand weak revenue.
+Increase AOV with cross‑sell and bundle strategies.
+Use seasonal trends to plan campaigns ahead of time.
+
+
+
+📦 e-commerce-dashboard
+ ┣ 📂 data
+ ┣ 📂 images
+ ┃ ┣ dashboard_overview.png
+ ┃ ┣ kpi_section.png
+ ┃ ┣ revenue_trend.png
+ ┃ ┗ top_categories.png
+ ┣ 📄 dashboard.pbix / dashboard.twbx
+ ┣ 📄 README.md
+
+
+Key Metrics
+KPIs Included in the Dashboard
+[Image blocked: KPIs Section]
+
+Total Revenue: $15,419,773.75
+Total Orders: 96,478
+Average Order Value (AOV): $159.83
+Top Categories by Revenue
+Monthly Revenue Trend
+These KPIs give leaders a fast overview of the company’s financial health.
