@@ -2,11 +2,14 @@
 
 <div align="center">
   
+  [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://kaiffarooqui970-leipzig-ecommerce-dashboard-app-6tewp5.streamlit.app/)
   [![Python](https://img.shields.io/badge/Python-3.14-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
   [![Pandas](https://img.shields.io/badge/Pandas-2.3.3-150458.svg?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
   [![Plotly](https://img.shields.io/badge/Plotly-6.7.0-3f4f75.svg?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com/)
   [![SQLite](https://img.shields.io/badge/SQLite-Database-003B57.svg?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 
+  **[🚀 VIEW LIVE DASHBOARD](https://kaiffarooqui970-leipzig-ecommerce-dashboard-app-6tewp5.streamlit.app/)**
+  
   *Transforming 100,000+ rows of raw relational data into actionable business strategy.*
 </div>
 
